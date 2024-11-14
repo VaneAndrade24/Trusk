@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TRUSK</title>
+  <meta content="The Memecoin for a Bold American Future!" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/mcc-501929.webflow.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.0/pixi.min.js"></script>
+</head>
+<body class="body">
+  <div class="bg-particle">
+    <div class="w-embed w-script"><!--  particles.js container  -->
+      <div id="particles-js"></div>
+      <!--  particles.js library  -->
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 13,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#FF2626"
+            },
+            "shape": {
+                "type": "star",
+                "stroke": {
+                    "width": 0,
+                    "color": "#FF2626"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                },
+                "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 8,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": false,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+</script>
+      <style>
+    /* ---- reset ---- */
+    canvas {
+        display: block;
+        vertical-align: bottom;
+    }
+    /* ---- particles.js container ---- */
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+    </div>
+  </div>
+  <section class="section-2">
+    <div data-w-id="b5f6ce97-49db-da48-ac17-8e9f3313cb4e" style="opacity:0" class="w-embed w-script">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.0/pixi.min.js"></script>
+      <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let w = window.innerWidth, h = window.innerHeight;
+    const renderer = new PIXI.Renderer({
+      width: w,
+      height: h,
+      backgroundColor: 0x1C2433,
+      resolution: window.devicePixelRatio || 1,
+      autoDensity: true
+    });
+    const cOutput = document.getElementById('wrap');
+    cOutput.appendChild(renderer.view);
+    const stage = new PIXI.Container();
+    const container = new PIXI.Container();
+    const foreground = new PIXI.Container();
+    stage.addChild(container);
+    stage.addChild(foreground);
+    let f, fg, d;
+    let mousex = w / 2, mousey = h / 2;
+    let targetMouseX = w / 2, targetMouseY = h / 2; // Target values for smooth transition
+    const mobileOffsetMultiplier = isMobileDevice() ? 5 : 1;
+    const smoothingFactor = 0.1; // Adjust this for more or less smoothing
+    window.addEventListener("resize", function() {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      renderer.resize(w, h);
+      resizeImageAndFilter(fg, d);
+      mousex = w / 2;
+      mousey = h / 2;
+    });
+    function init() {
+      Promise.all([
+        PIXI.Assets.load('https://cdn.prod.website-files.com/67313898ea876991a9fda523/67350d68fde6d6406256e18a_TRUSK-HS.jpg'),
+        PIXI.Assets.load('https://cdn.prod.website-files.com/67313898ea876991a9fda523/67350d5eb44a09d62cbd19d8_TRUSK-H-DEPTH.jpeg')
+      ]).then(([fgTexture, depthTexture]) => {
+        startMagic(fgTexture, depthTexture);
+      });
+    }
+    function startMagic(fgTexture, depthTexture) {
+      fg = new PIXI.Sprite(fgTexture);
+      foreground.addChild(fg);
+      d = new PIXI.Sprite(depthTexture);
+      f = new PIXI.filters.DisplacementFilter(d, 0);
+      fg.filters = [f];
+      container.addChild(d);
+      d.renderable = false;
+      resizeImageAndFilter(fg, d);
+      if (isMobileDevice()) {
+        setupGyroscope();
+      } else {
+        window.addEventListener('mousemove', handleMouse);
+      }
+      animate();
+    }
+    // Adjust images to fit vertically with preserved aspect ratio
+function resizeImageAndFilter(sprite, depthSprite) {
+  const textureWidth = sprite.texture.width;
+  const textureHeight = sprite.texture.height;
+  // Calculate scales for both dimensions
+  const scaleX = window.innerWidth / textureWidth;
+  const scaleY = window.innerHeight / textureHeight;
+  // Choose the larger scale to fill the screen in both dimensions
+  const scale = Math.max(scaleX, scaleY);
+  // Apply the chosen scale to both textures
+  sprite.width = textureWidth * scale;
+  sprite.height = textureHeight * scale;
+  depthSprite.width = textureWidth * scale;
+  depthSprite.height = textureHeight * scale;
+  // Center both textures
+  sprite.x = (window.innerWidth - sprite.width) / 2;
+  sprite.y = (window.innerHeight - sprite.height) / 2;
+  depthSprite.x = (window.innerWidth - depthSprite.width) / 2;
+  depthSprite.y = (window.innerHeight - depthSprite.height) / 2;
+}
+    function handleMouse(e) {
+      mousex = e.clientX;
+      mousey = e.clientY;
+    }
+    function setupGyroscope() {
+      if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+          .then(response => {
+            if (response === 'granted') {
+              window.addEventListener('deviceorientation', handleGyroscope);
+            }
+          })
+          .catch(error => console.error("Gyroscope permission error:", error));
+      } else {
+        window.addEventListener('deviceorientation', handleGyroscope);
+      }
+    }
+    function handleGyroscope(event) {
+      if (event.alpha !== null && event.gamma !== null) {
+        targetMouseX = (event.alpha / 360) * w;
+        targetMouseY = ((event.gamma + 90) / 180) * h;
+      }
+    }
+    function animate() {
+      mousex = lerp(mousex, targetMouseX, smoothingFactor);
+      mousey = lerp(mousey, targetMouseY, smoothingFactor);
+      f.scale.x = ((w / 2 - mousex) / 80) * mobileOffsetMultiplier;
+      f.scale.y = ((h / 2 - mousey) / 80) * mobileOffsetMultiplier;
+      renderer.render(stage);
+      requestAnimationFrame(animate);
+    }
+    function lerp(start, end, factor) {
+      return start + (end - start) * factor;
+    }
+    function isMobileDevice() {
+      return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+    init();
+  });
+</script>
+    </div>
+    <div class="menu">
+      <div class="div-block-4"><img src="images/LOGO.svg" loading="lazy" data-w-id="07d36445-59ad-43df-ac51-5780507efeb8" alt="" class="image"></div>
+      <div class="div-block-4-copy">
+        <div class="div-block-5">
+          <a href="#" class="button w-button">BUY soon</a>
+          <a href="https://x.com/TruskOnSolana" target="_blank" class="button w-button">follow on x</a>
+        </div>
+      </div>
+    </div>
+    <div class="div-block-3-copy">
+      <div data-w-id="fcd53feb-de3a-aa50-6958-f918fa469ee0" style="opacity:0" class="welcomediv">
+        <h3 class="heading">The <strong>Memecoin</strong> for a <strong>Bold American Future</strong>! </h3>
+        <div class="div-block-5">
+          <a href="#section2" class="button w-button">TRUSK more</a>
+        </div>
+      </div>
+    </div>
+    <div id="wrap" class="bg-block"></div>
+  </section>
+  <section id="section2" class="section-2">
+    <div class="div-block-3-copy-copy-copy">
+      <div data-w-id="35a456eb-a4fe-d238-55d6-2d0b535613a0" style="opacity:0" class="div-block-4-copy-copy">
+        <h1>in trump we musk Trusk</h1>
+        <h3 class="heading">The <strong>Memecoin</strong> for a <strong>Bold American Future</strong>! </h3>
+        <p data-w-id="35a456eb-a4fe-d238-55d6-2d0b535613a3" style="opacity:0" class="paragraph"><br>This isn’t just another coin; it’s a symbol of America’s daring spirit, its drive for greatness, and the power of innovation that’s setting the world stage on fire. Trusk doesn’t need flashy promises – it’s built on something far more profound: fun, freedom, and the unstoppable energy that propels Americans to dream big and reach for the stars. <br><br>This isn’t financial advice; it’s a movement, a celebration of American strength, led by legends like Trump and Musk who remind us that true leaders make us laugh, think, and inspire us to break the mold.Join the Trusk revolution. It’s time to celebrate, to believe in American excellence, and to have a blast doing it! <br><br>Share the meme, share the vision, and who knows – maybe this simple coin will inspire the next great leap forward. <br><br>‍<strong>This is Trusk – for America, for the future, and for the believers!</strong></p>
+        <div class="div-block-5">
+          <a href="#section3" class="button w-button">how to buy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section2" class="section-2">
+    <div class="sliderrr">
+      <div data-delay="4000" data-animation="slide" class="slider w-slider" data-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="8" data-duration="500" data-infinite="true">
+        <div class="w-slider-mask">
+          <div class="w-slide"><img src="images/002.jpg" loading="lazy" alt="" class="img"></div>
+          <div class="w-slide"><img src="images/001.jpg" loading="lazy" alt="" class="img"></div>
+          <div class="w-slide"><img src="images/004.jpg" loading="lazy" alt="" class="img"></div>
+          <div class="w-slide"><img src="images/003.jpg" loading="lazy" alt="" class="img"></div>
+        </div>
+        <div class="w-slider-arrow-left">
+          <div class="w-icon-slider-left"></div>
+        </div>
+        <div class="w-slider-arrow-right">
+          <div class="w-icon-slider-right"></div>
+        </div>
+        <div class="w-slider-nav w-round"></div>
+      </div>
+    </div>
+  </section>
+  <section id="section3" class="section-2">
+    <div class="div-block-3-copy-copy">
+      <div class="div-block-6">
+        <div class="ingrid">
+          <h2>download phantom</h2>
+          <p data-w-id="1777bba9-fc32-f033-7032-c945a94a8e2a" style="opacity:0" class="paragraph">Visit the Phantom website or app store to download and install the Phantom wallet.</p>
+          <div class="div-block-5">
+            <a href="https://phantom.app/" target="_blank" class="button w-button">download</a>
+          </div>
+        </div>
+        <div id="w-node-_9a6e23ac-3511-723b-96ca-5144f5810138-a9fda580" class="ingrid">
+          <h2>buy solana</h2>
+          <p data-w-id="9a6e23ac-3511-723b-96ca-5144f581013b" style="opacity:0" class="paragraph">Purchase Solana (SOL) on an exchange like Binance, Coinbase, or directly within the Phantom wallet.</p>
+          <div class="div-block-5">
+            <a href="https://www.google.com/search?q=how+to+buy+solana" target="_blank" class="button w-button">buy sol</a>
+          </div>
+        </div>
+        <div id="w-node-_8a921a51-bb1f-1d49-82f9-dee471da4684-a9fda580" class="ingrid">
+          <h2>swap sol for truSK</h2>
+          <p data-w-id="8a921a51-bb1f-1d49-82f9-dee471da4687" style="opacity:0" class="paragraph">Use a decentralized exchange (DEX) like Raydium to swap your SOL for $TRUSK.</p>
+          <div class="div-block-5">
+            <a href="https://raydium.io/" target="_blank" class="button w-button">coming soon</a>
+          </div>
+        </div>
+        <div id="w-node-_39ac30cd-ebb3-1de6-7ac0-9594f80c9c7a-a9fda580" class="ingrid">
+          <h2>join the telegram</h2>
+          <p data-w-id="39ac30cd-ebb3-1de6-7ac0-9594f80c9c7d" style="opacity:0" class="paragraph">Join our official Telegram group to stay updated and engage with the community</p>
+          <div class="div-block-5">
+            <a href="https://t.me/TruskOnSol" class="button w-button">join telegram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section2" class="section-2">
+    <div class="div-block-3-copy-copy-copy">
+      <div data-w-id="c3cfa0c3-1fc7-7103-30bd-79bf65ec4ddb" style="opacity:0" class="div-block-4-copy-copy">
+        <h1>the trusk companies</h1>
+        <p class="paragraph"><em>&quot;You&#x27;re fired&quot;</em> 一 Donald Trump<em><br><br>“America is the spirit of human exploration distilled.”</em> 一 Elon Musk.<br></p><img src="images/Logos.svg" loading="lazy" style="opacity:0" data-w-id="88c51329-a7ba-040e-7870-7179a2d180e2" alt="" class="img">
+      </div>
+    </div>
+  </section>
+  <section id="section3" class="section"><img src="images/M.svg" loading="lazy" alt=""><img src="images/SQ_SOLO.png" loading="lazy" sizes="(max-width: 952px) 100vw, 952px" srcset="images/SQ_SOLO-p-500.png 500w, images/SQ_SOLO-p-800.png 800w, images/SQ_SOLO.png 952w" alt=""></section>
+  <div class="div-block-7"></div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=67313898ea876991a9fda523" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+</body>
+</html>
